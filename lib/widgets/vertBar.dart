@@ -10,17 +10,20 @@ class VertBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      height: containerHeight * (id / 1000),
-      //curve: Curves.bounceIn,
-      duration: Duration(milliseconds: 1),
-      color: active == null
-          ? Colors.green
-          : active
-              ? Colors.red
-              : Colors.blueGrey,
-      //color: active ? Colors.red : Colors.blueGrey,
-      width: 4,
+    return Expanded(
+      flex: 1,
+      child: Container(
+        height: containerHeight * (id / 1000),
+
+        //curve: Curves.bounceIn,
+        //duration: Duration(milliseconds: 1),
+        color: active == null
+            ? Colors.green
+            : active
+                ? Colors.red
+                : Colors.blueGrey,
+        //color: active ? Colors.red : Colors.blueGrey,
+      ),
     );
   }
 }

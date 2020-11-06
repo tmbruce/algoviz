@@ -1,3 +1,3 @@
-Future wait() {
-  return Future.delayed(Duration(milliseconds: 200));
+Future wait(int speed) {
+  return Future.delayed(Duration(milliseconds: speed));
 }

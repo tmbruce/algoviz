@@ -7,6 +7,9 @@ class HomeScreen extends ConsumerWidget {
   final sliderProvider = StateNotifierProvider<SliderProvider>((ref) {
     return SliderProvider();
   });
+  final sortProvider = StateNotifierProvider<SortSpeedProvider>((ref) {
+    return SortSpeedProvider();
+  });
   final widgetBarProvider = StateNotifierProvider<WidgetBarProvider>((ref) {
     return WidgetBarProvider();
   });
@@ -15,6 +18,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     final slideProvider = watch(sliderProvider.state);
     final barProvider = watch(widgetBarProvider.state);
+    final sortSpeedProvider = watch(sortProvider.state);
     var screenSize = MediaQuery.of(context).size;
     var containerSize = screenSize.height * .5;
 
@@ -33,6 +37,10 @@ class HomeScreen extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: barProvider),
           ),
+          Text(
+            'Array Size',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          ),
           Slider(
             activeColor: Colors.blueGrey,
             value: slideProvider.toDouble(),
@@ -41,6 +49,19 @@ class HomeScreen extends ConsumerWidget {
             onChanged: (value) {
               context.read(sliderProvider).setSlider(value.toInt());
               context.read(widgetBarProvider).createArray(value.toInt());
+            },
+          ),
+          Text(
+            'Sort Speed',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          ),
+          Slider(
+            activeColor: Colors.blueGrey,
+            value: sortSpeedProvider.toDouble(),
+            min: -100,
+            max: -0,
+            onChanged: (value) {
+              context.read(sortProvider).setSlider(value.toInt());
             },
           ),
           Row(
