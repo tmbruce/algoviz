@@ -42,7 +42,7 @@ class HomeScreen extends ConsumerWidget {
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
           Slider(
-            activeColor: Colors.blueGrey,
+            activeColor: Colors.blue,
             value: slideProvider.toDouble(),
             min: 20,
             max: (screenSize.width / 4).floorToDouble(),
@@ -56,7 +56,7 @@ class HomeScreen extends ConsumerWidget {
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
           Slider(
-            activeColor: Colors.blueGrey,
+            activeColor: Colors.blue,
             value: sortSpeedProvider.toDouble(),
             min: -100,
             max: -0,
